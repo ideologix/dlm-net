@@ -18,7 +18,7 @@
         public String? updated_at { get; set; }
         public String? deactivated_at { get; set; }
 
-        public bool isActive()
+        public bool IsActive()
         {
             return String.IsNullOrEmpty(this.deactivated_at);
         }

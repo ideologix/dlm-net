@@ -21,5 +21,11 @@
         public String? created_at { get; set; }
         public String? updated_at { get; set; }
         public List<Activation>? activations { get; set; }
+
+        public bool IsExpired()
+        {
+            DateTime ExpiresAt = DateTime.Parse(this.expires_at);
+            return ExpiresAt <= DateTime.Now;
+        }
     }
 }
