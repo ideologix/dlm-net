@@ -30,9 +30,9 @@ namespace DLM_NET.Http
             this.httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(authToken));
             String fullUrl = this.apiBase + path;
 
-            using (var result = await this.httpClient.GetAsync($"{fullUrl}"))
+            using (var result = this.httpClient.GetAsync($"{fullUrl}"))
             {
-                string content = await result.Content.ReadAsStringAsync();
+                string content = await result.Result.Content.ReadAsStringAsync();
                 return content;
             }
         }
