@@ -89,7 +89,7 @@ The `Result.data` property is of type `DLM_NET.Models.Activation`. It represents
 
 ```csharp
 
-Result<Activation> result = service.Licenses().Deactivate("AAAA-AAAA-AAAA-AAAA");
+Result<Activation> result = service.Licenses().Deactivate("732f6e77a6a2373ed24315c6e2a606eb8d7c46b3"); // Note: This is token, not license key.
 
 if(!result.isError()) {
   Console.WriteLine("Activation Token: " + result.data.token);
