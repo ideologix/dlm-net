@@ -23,6 +23,13 @@ namespace DLM_NET.Apis
             return JsonSerializer.Deserialize<Result<Activation>>(contents);
         }
 
+        public Result<Activation> Activate(String licenseKey, int softwareId)
+        {
+            string softwareIdStr = string.Format("?software={0}", softwareId.ToString());
+            String contents = this.client.RequestGet("licenses/activate/" + licenseKey + softwareIdStr).Result;
+            return JsonSerializer.Deserialize<Result<Activation>>(contents);
+        }
+
         public Result<Activation> Validate(String token)
         {
             String contents = this.client.RequestGet("licenses/validate/" + token).Result;
